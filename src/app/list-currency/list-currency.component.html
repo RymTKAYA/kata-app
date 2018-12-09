@@ -1,0 +1,55 @@
+<h3>Available currencies</h3>
+<p-dataView #dv [value]="currencies"
+            [paginator]="true"
+            rows="10"
+            [totalRecords]="6"
+            [rowsPerPageOptions]="[10,50,100]"
+            filterBy="">
+  <p-header>
+    <div class="ui-helper-clearfix">
+      <div class="ui-g">
+        <div class="ui-g-12 ui-md-4">
+            <p-dropdown placeholder="Filter By" [options]="filterOptions"
+                        [style]="{'width':'60%'}"
+                        (onChange)="onFilterChange($event)"
+                        styleClass="ui-column-filter">
+            </p-dropdown>
+        </div>
+        <div class="ui-g-12 ui-md-4 filter-container">
+          <div style="position:relative">
+            <input type="search" pInputText placeholder="Search" (keyup)="dv.filter($event.target.value)">
+          </div>
+        </div>
+        <div class="ui-g-6 ui-md-4" style="text-align:right">
+          <p-dataViewLayoutOptions></p-dataViewLayoutOptions>
+        </div>
+      </div>
+    </div>
+  </p-header>
+ <ng-template let-currency pTemplate="listItem">
+    <div class="ui-g" style="padding: 0em;border-bottom: 1px solid #d9d9d9">
+      <div class="ui-g-12 ui-md-8 car-details">
+        <div class="ui-g">
+          <div class="ui-g-2 ui-sm-2">Name: </div>
+          <div class="ui-g-10 ui-sm-2"><b>{{currency}}</b></div>
+        </div>
+      </div>
+      <div class="ui-g-12 ui-md-1 search-icon">
+        <button pButton type="button" icon="pi pi-info" (click)="selectCurrency($event, currency)"></button>
+      </div>
+    </div>
+  </ng-template>
+  <ng-template let-currency pTemplate="gridItem">
+    <div  class="ui-g-12 ui-md-2">
+      <p-card>
+        <p-header [style]="{'text-align':'center'}">
+
+        </p-header>
+        <div class="currency-detail">{{currency}}</div>
+        <p-footer>
+          <button pButton type="button" icon="pi pi-info" (click)="selectCurrency($event, currency)" style="margin-top:0"></button>
+        </p-footer>
+      </p-card>
+    </div>
+  </ng-template>
+</p-dataView>

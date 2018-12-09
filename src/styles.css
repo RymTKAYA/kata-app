@@ -1,0 +1,21 @@
+/* You can add global styles to this file, and also import other style files */
+#layout-topbar {
+  background-color: #20272a;
+  color: #fff;
+  box-sizing: border-box;
+  display: block;
+  padding: 0;
+  height: 70px;
+  box-sizing: border-box;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9997;
+  text-align: center;
+  line-height: 4;
+  box-shadow: 0 2px 5px 0 rgba(0,0,0,.3);
+}
+.layout-content{
+  margin-top: 97px;
+}
