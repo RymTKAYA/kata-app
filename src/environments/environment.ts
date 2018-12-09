@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   CURRENCIES: {
-    baseURL: 'https://openexchangerates.org/api/currencies.json'
+    baseURL: 'https://api.nexchange.io/en/api/v1/currency/'
   }
 };
 

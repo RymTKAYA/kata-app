@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, Output, EventEmitter} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
-
 import {CurrenciesService} from '../currencies.service';
 import {Currency} from '../currency';
 import {SelectItem} from 'primeng/api';
@@ -11,6 +10,8 @@ import {SelectItem} from 'primeng/api';
   styleUrls: ['./list-currency.component.css']
 })
 export class ListCurrencyComponent implements OnInit {
+  @Output()
+  onCurrencySelect: EventEmitter<Currency> = new EventEmitter();
   currencies: Currency[];
   filterOptions: SelectItem[];
   optionSelected: string;
@@ -21,23 +22,22 @@ export class ListCurrencyComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.optionSelected = 'id';
     /**
      * Get All currencies list
      */
     this.currenciesService.getCurrencies()
       .subscribe(data => {
         if (!!data) {
-          this.currencies = Object.values(data)
+          this.currencies = data;
         }
       }, (err) => {
         console.log(err);
       });
+    this.optionSelected = 'code,name';
     this.filterOptions = [
-      {label: 'Id', value: 'id'},
+      {label: 'All', value: 'code,name'},
       {label: 'Code', value: 'code'},
-      {label: 'Name', value: 'name'},
-      {label: 'Type', value: 'currency_type'}
+      {label: 'Name', value: 'name'}
     ];
 
   }
@@ -46,7 +46,8 @@ export class ListCurrencyComponent implements OnInit {
    * @param currency
    */
   selectCurrency(event, currency) {
-    this.router.navigate(['currency', currency]);
+    localStorage.setItem('currency', JSON.stringify(currency))
+    this.router.navigate(['currency', currency.code]);
   }
   /**
    * @param event

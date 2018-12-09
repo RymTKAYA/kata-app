@@ -1,7 +1,19 @@
 <p-card>
   <p-header>
+    <b>{{currency.code}}</b>
   </p-header>
-  {{currency}}
+      <div class="ui-g-2 ui-sm-2">Code: </div>
+      <div class="ui-g-10 ui-sm-2"><b>{{currency.code}}</b></div>
+      <div class="ui-g-2 ui-sm-2">Name: </div>
+      <div class="ui-g-10 ui-sm-2"><b>{{currency.name}}</b></div>
+      <div class="ui-g-2 ui-sm-2">Crypto: </div>
+      <div class="ui-g-10 ui-sm-2"><b>{{currency.is_crypto}}</b></div>
+      <div class="ui-g-2 ui-sm-2">Maximal amount: </div>
+      <div class="ui-g-10 ui-sm-2"><b>{{currency.maximal_amount}}</b></div>
+      <div class="ui-g-2 ui-sm-2">Maximal amount: </div>
+      <div class="ui-g-10 ui-sm-2"><b>{{currency.minimal_amount}}</b></div>
+      <div class="ui-g-2 ui-sm-2">Withdrawal fee: </div>
+      <div class="ui-g-10 ui-sm-2"><b>{{currency.withdrawal_fee}}</b></div>
   <p-footer>
     <button pButton type="button" label="RETOUR" (click)="backToList()"></button>
   </p-footer>

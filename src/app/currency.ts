@@ -1,7 +1,8 @@
 export class Currency {
-  symbol: string;
-  symbol_native: string;
-  decimal_digits: number;
-  rounding: number;
   code: string;
+  name: string;
+  is_crypto: boolean;
+  minimal_amount: string;
+  maximal_amount: number;
+  withdrawal_fee: number;
 }

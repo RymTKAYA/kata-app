@@ -4,7 +4,7 @@
             rows="10"
             [totalRecords]="6"
             [rowsPerPageOptions]="[10,50,100]"
-            filterBy="">
+            [filterBy]=optionSelected>
   <p-header>
     <div class="ui-helper-clearfix">
       <div class="ui-g">
@@ -28,10 +28,12 @@
   </p-header>
  <ng-template let-currency pTemplate="listItem">
     <div class="ui-g" style="padding: 0em;border-bottom: 1px solid #d9d9d9">
-      <div class="ui-g-12 ui-md-8 car-details">
+      <div class="ui-g-12 ui-md-8 currency-details">
         <div class="ui-g">
-          <div class="ui-g-2 ui-sm-2">Name: </div>
-          <div class="ui-g-10 ui-sm-2"><b>{{currency}}</b></div>
+          <div class="ui-g-2 ui-sm-2">Code: </div>
+          <div class="ui-g-10 ui-sm-2"><b>{{currency.code}}</b></div>
+          <div class="ui-g-2 ui-sm-2">Crypto: </div>
+          <div class="ui-g-10 ui-sm-2"><b>{{currency.is_crypto}}</b></div>
         </div>
       </div>
       <div class="ui-g-12 ui-md-1 search-icon">
@@ -43,9 +45,9 @@
     <div  class="ui-g-12 ui-md-2">
       <p-card>
         <p-header [style]="{'text-align':'center'}">
-
+          <b>{{currency.code}}</b>
         </p-header>
-        <div class="currency-detail">{{currency}}</div>
+        <div class="car-detail">Crypto - {{currency.is_crypto}}</div>
         <p-footer>
           <button pButton type="button" icon="pi pi-info" (click)="selectCurrency($event, currency)" style="margin-top:0"></button>
         </p-footer>

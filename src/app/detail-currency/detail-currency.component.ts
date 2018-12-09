@@ -1,18 +1,21 @@
-import { Component, OnInit } from '@angular/core';
-import {Currency} from '../currency';
-import { ActivatedRoute } from '@angular/router';
+import { Component, Input, OnInit } from '@angular/core';
+import { Currency } from '../currency';
+import { ListCurrencyComponent} from '../list-currency/list-currency.component';
 
 @Component({
   selector: 'app-detail-currency',
   templateUrl: './detail-currency.component.html',
-  styleUrls: ['./detail-currency.component.css']
+  styleUrls: ['./detail-currency.component.css'],
+  providers: [ ListCurrencyComponent ],
 })
 export class DetailCurrencyComponent implements OnInit {
-  currency: Currency
-  constructor(private route: ActivatedRoute) { }
+  @Input()
+  currencyComponentRef: ListCurrencyComponent;
+  currency: Currency;
+  constructor() { }
 
   ngOnInit() {
-    this.currency = this.route.snapshot.params.id;
+    this.currency = JSON.parse(localStorage.getItem('currency'));
   }
   backToList() {
     window.history.back();
