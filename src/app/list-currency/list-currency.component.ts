@@ -1,4 +1,4 @@
-import {Component, OnInit, Output, EventEmitter} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {CurrenciesService} from '../currencies.service';
 import {Currency} from '../currency';
@@ -10,8 +10,6 @@ import {SelectItem} from 'primeng/api';
   styleUrls: ['./list-currency.component.css']
 })
 export class ListCurrencyComponent implements OnInit {
-  @Output()
-  onCurrencySelect: EventEmitter<Currency> = new EventEmitter();
   currencies: Currency[];
   filterOptions: SelectItem[];
   optionSelected: string;

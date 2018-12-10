@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Currency } from '../currency';
 import { ListCurrencyComponent} from '../list-currency/list-currency.component';
 
@@ -9,8 +9,6 @@ import { ListCurrencyComponent} from '../list-currency/list-currency.component';
   providers: [ ListCurrencyComponent ],
 })
 export class DetailCurrencyComponent implements OnInit {
-  @Input()
-  currencyComponentRef: ListCurrencyComponent;
   currency: Currency;
   constructor() { }
 

@@ -19,3 +19,13 @@
 .layout-content{
   margin-top: 97px;
 }
+.line-border{
+  padding: 0em;
+  border-bottom: 1px solid #d9d9d9;
+}
+.iconOption{
+  text-align:right
+}
+btn-info{
+  margin-top:0
+}
